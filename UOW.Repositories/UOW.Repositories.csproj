@@ -7,8 +7,13 @@
   <ItemGroup>
     <Folder Include="Concretes\" />
     <Folder Include="Contracts\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.10.0" />
+    <PackageReference Include="ServiceStack.Core" Version="5.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UOW.Entities\UOW.Entities.csproj" />
   </ItemGroup>
 </Project>

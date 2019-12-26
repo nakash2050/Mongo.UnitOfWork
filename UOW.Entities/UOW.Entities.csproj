@@ -7,4 +7,7 @@
   <ItemGroup>
     <Folder Include="Domain\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.10.0" />
+  </ItemGroup>
 </Project>

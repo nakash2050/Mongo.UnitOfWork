@@ -9,8 +9,10 @@ namespace UOW.Repositories.Contracts
 
         Task<T> Get(string id);
 
-        Task Update(T entity);
+        void Add(T entity);
 
-        Task Remove(string id);
+        void Update(T entity);
+
+        void Remove(string id);
     }
 }
