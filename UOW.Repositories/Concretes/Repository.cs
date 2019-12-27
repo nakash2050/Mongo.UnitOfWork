@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using UOW.Repositories.Contracts;
@@ -9,8 +8,8 @@ namespace UOW.Repositories.Concretes
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        private readonly IMongoContext mongoContext;
-        private IMongoCollection<T> DBSet;
+        protected readonly IMongoContext mongoContext;
+        protected IMongoCollection<T> DBSet;
 
         public Repository(IMongoContext mongoContext)
         {
@@ -52,6 +51,11 @@ namespace UOW.Repositories.Concretes
         {
             ConfigDbSet();
             mongoContext.AddCommand(() => DBSet.InsertOneAsync(entity));
+        }
+
+        public void Dispose()
+        {
+            mongoContext?.Dispose();
         }
     }
 }

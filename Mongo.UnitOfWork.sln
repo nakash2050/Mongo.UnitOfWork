@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOW.Entities", "UOW.Entitie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOW.Repositories", "UOW.Repositories\UOW.Repositories.csproj", "{6D92B4F0-51F0-48FB-B4CD-5A303F79A1C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOW.API", "UOW.API\UOW.API.csproj", "{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{6D92B4F0-51F0-48FB-B4CD-5A303F79A1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D92B4F0-51F0-48FB-B4CD-5A303F79A1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D92B4F0-51F0-48FB-B4CD-5A303F79A1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
