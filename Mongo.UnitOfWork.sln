@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOW.Repositories", "UOW.Rep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UOW.API", "UOW.API\UOW.API.csproj", "{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C140EE5E-6379-4406-9682-D746C17D5439}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA6ABC4B-6F03-4020-A52E-891AB1D94B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C140EE5E-6379-4406-9682-D746C17D5439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C140EE5E-6379-4406-9682-D746C17D5439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C140EE5E-6379-4406-9682-D746C17D5439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C140EE5E-6379-4406-9682-D746C17D5439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

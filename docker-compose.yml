@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  uow.api:
+    image: ${DOCKER_REGISTRY-}uow
+    container_name: mongo-uow-api
+    build:
+      context: .
+      dockerfile: UOW.API/Dockerfile
+  mongodb:
+    container_name: mongo-uow
+    image: mongo
+    hostname: "mongodb"
