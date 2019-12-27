@@ -4,6 +4,8 @@ using MongoDB.Driver;
 using UOW.Repositories.Contracts;
 using ServiceStack;
 using MongoDB.Bson;
+using System;
+using System.Linq.Expressions;
 
 namespace UOW.Repositories.Concretes
 {
@@ -22,7 +24,7 @@ namespace UOW.Repositories.Concretes
             DBSet = mongoContext.GetCollection<T>(typeof(T).Name);
         }
 
-        public virtual async Task<T> Get(string id)
+        public virtual async Task<T> GetById(string id)
         {
             ConfigDbSet();
 
@@ -42,13 +44,17 @@ namespace UOW.Repositories.Concretes
         public virtual void Remove(string id)
         {
             ConfigDbSet();
-            mongoContext.AddCommand(() => DBSet.DeleteOneAsync(Builders<T>.Filter.Eq("_id", id)));
+            var mid = ObjectId.Parse(id);
+            mongoContext.AddCommand(() => DBSet.DeleteOneAsync(Builders<T>.Filter.Eq("_id", mid)));
         }
 
         public virtual void Update(T entity)
         {
             ConfigDbSet();
-            mongoContext.AddCommand(() => DBSet.ReplaceOneAsync(Builders<T>.Filter.Eq("_id", entity.GetId()), entity));
+
+            var mid = ObjectId.Parse(entity.GetId().ToString());
+
+            mongoContext.AddCommand(() => DBSet.ReplaceOneAsync(Builders<T>.Filter.Eq("_id", mid), entity));
         }
 
         public virtual void Add(T entity)
@@ -60,6 +66,19 @@ namespace UOW.Repositories.Concretes
         public void Dispose()
         {
             mongoContext?.Dispose();
+        }
+
+        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate)
+        {
+            ConfigDbSet();
+            var data = await DBSet.FindAsync(predicate);
+            return await data.ToListAsync();
+        }
+
+        public void AddMany(IEnumerable<T> entity)
+        {
+            ConfigDbSet();
+            mongoContext.AddCommand(() => DBSet.InsertManyAsync(entity));
         }
     }
 }
