@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UOW.Entities.Domain;
 using UOW.Entities.DTO;
@@ -24,6 +25,13 @@ namespace UOW.API.Controllers
         {
             var employees = await employeeRepository.GetAll();
             return Ok(employees);
+        }
+
+        [HttpGet("id")]
+        public async Task<IActionResult> GetEmployeeById(string id)
+        {
+            var employee = await employeeRepository.Get(id);
+            return Ok(employee);
         }
 
         [HttpPost]

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using UOW.Repositories.Contracts;
 using ServiceStack;
+using MongoDB.Bson;
 
 namespace UOW.Repositories.Concretes
 {
@@ -24,7 +25,10 @@ namespace UOW.Repositories.Concretes
         public virtual async Task<T> Get(string id)
         {
             ConfigDbSet();
-            var data = await DBSet.FindAsync(Builders<T>.Filter.Eq("_id", id));
+
+            var mid = ObjectId.Parse(id);
+
+            var data = await DBSet.FindAsync(Builders<T>.Filter.Eq("_id", mid));
             return data.SingleOrDefault();
         }
 
@@ -32,7 +36,7 @@ namespace UOW.Repositories.Concretes
         {
             ConfigDbSet();
             var data = await DBSet.FindAsync(Builders<T>.Filter.Empty);
-            return data.ToList();
+            return await data.ToListAsync();
         }
 
         public virtual void Remove(string id)
