@@ -53,8 +53,6 @@ namespace UOW.API
                 app.UseDeveloperExceptionPage();
             }
 
-            
-
             app.UseSwagger(c =>
             {
                 c.RouteTemplate = "swagger/{documentName}/swagger.json";
