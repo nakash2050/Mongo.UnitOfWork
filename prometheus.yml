@@ -1,0 +1,9 @@
+# prometheus.yml
+global:
+    scrape_interval: 5s
+    external_labels:
+        monitor: 'mongo-api-monitor'
+scrape_configs:
+    - job_name: 'prometheus'
+      target_groups:
+          - targets: ['host.docker.internal:5000']
